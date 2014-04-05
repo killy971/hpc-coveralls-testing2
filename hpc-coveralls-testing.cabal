@@ -1,0 +1,28 @@
+name:                hpc-coveralls-testing
+version:             0.1.0.0
+synopsis:            Dummy project used to test hpc-coveralls.
+license:             BSD3
+license-file:        LICENSE
+author:              Guillaume Nargeot
+maintainer:          guillaume@nargeot.com
+copyright:           (c) 2014 Guillaume Nargeot
+category:            Control
+build-type:          Simple
+cabal-version:       >=1.9.2
+
+source-repository head
+  type: git
+  location: git://github.com/guillaume-nargeot/hpc-coveralls-testing.git
+
+executable problem
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  build-depends:       base, containers
+  ghc-options:         -Wall -Werror -O2
+
+test-suite test-all
+  hs-source-dirs:      src, test
+  type:                exitcode-stdio-1.0
+  main-is:             TestAll.hs
+  build-depends:       base, containers, HUnit, Cabal >= 1.9.2
+  ghc-options:         -Wall -Werror -O2
