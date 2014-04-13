@@ -15,7 +15,7 @@ before_install:
 
 install:
   - cabal-1.18 update
-  - cabal-1.18 configure --enable-tests --enable-benchmarks --enable-library-coverage -v2
+  - cabal-1.18 configure --enable-tests --enable-library-coverage -v2
   - git clone https://github.com/guillaume-nargeot/hpc-coveralls
   - cd hpc-coveralls
   - cabal-1.18 install --avoid-reinstalls
