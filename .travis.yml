@@ -5,7 +5,7 @@ ghc:
   - 7.6.3
 
 before_install:
-  - git clone https://github.com/guillaume-nargeot/hpc-coveralls
+  - git clone -b develop https://github.com/guillaume-nargeot/hpc-coveralls
   - cd hpc-coveralls
   - cabal install
   - cd ..
@@ -16,4 +16,4 @@ script:
   - run-cabal-test --cabal-name=cabal --show-details=always
 
 after_script:
-  - hpc-coveralls test-all --exclude-dir=test
+  - hpc-coveralls test-all --exclude-dir=test --exclude-dir=bench
