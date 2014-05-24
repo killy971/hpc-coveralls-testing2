@@ -6,11 +6,11 @@ ghc:
   - 7.8.2
 
 before_install:
-  - git clone -b develop https://github.com/guillaume-nargeot/hpc-coveralls
-  - cd hpc-coveralls
-  - cabal install
-  - cd ..
-#  - cabal install hpc-coveralls
+#  - git clone -b develop https://github.com/guillaume-nargeot/hpc-coveralls
+#  - cd hpc-coveralls
+#  - cabal install
+#  - cd ..
+  - cabal install hpc-coveralls
 
 script:
   - cabal configure --enable-tests --enable-library-coverage
