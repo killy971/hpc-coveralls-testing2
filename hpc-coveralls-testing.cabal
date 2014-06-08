@@ -25,10 +25,3 @@ test-suite test-one
   main-is:         TestOne.hs
   build-depends:   base, containers, HUnit
   ghc-options:     -Wall
-
-test-suite test-two
-  hs-source-dirs:  src, test2
-  type:            exitcode-stdio-1.0
-  main-is:         TestTwo.hs
-  build-depends:   base, containers, HUnit
-  ghc-options:     -Wall
