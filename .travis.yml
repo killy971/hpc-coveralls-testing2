@@ -1,12 +1,11 @@
 language: haskell
 
 ghc:
-  - 7.4.2
-  - 7.6.3
-  - 7.8.2
+  - 7.6
+  - 7.8
 
 before_install:
-  - git clone -b consider-otherwise-covered https://github.com/guillaume-nargeot/hpc-coveralls
+  - git clone -b print-coveralls-response https://github.com/guillaume-nargeot/hpc-coveralls
   - cd hpc-coveralls
   - cabal install
   - cd ..
