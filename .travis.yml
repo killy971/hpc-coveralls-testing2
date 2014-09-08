@@ -1,7 +1,6 @@
 language: haskell
 
 ghc:
-  - 7.4.2
   - 7.6.3
   - 7.8.2
 
@@ -21,4 +20,4 @@ after_script:
   - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2 --coverage-mode=AllowPartialLines --display-report --dont-send
   - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2 --coverage-mode=StrictlyFullLines --display-report --dont-send
   - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2 --display-report --dont-send
-  - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2 --print-result
+  - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2 --print-response
