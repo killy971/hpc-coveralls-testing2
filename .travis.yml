@@ -1,8 +1,8 @@
 language: haskell
 
 ghc:
-  - 7.6.3
-  - 7.8.2
+  - 7.6
+  - 7.8
 
 before_install:
   - cabal install hpc-coveralls-0.6.0
@@ -13,4 +13,4 @@ script:
   - run-cabal-test --cabal-name=cabal --show-details=always
 
 after_script:
-  - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2
+  - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2 --print-response
