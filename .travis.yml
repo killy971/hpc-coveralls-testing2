@@ -16,4 +16,4 @@ script:
   - run-cabal-test --cabal-name=cabal --show-details=always
 
 after_script:
-  - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2 --print-response
+  - hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2
