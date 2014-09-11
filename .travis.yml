@@ -5,7 +5,10 @@ ghc:
   - 7.8
 
 before_install:
-  - cabal install hpc-coveralls-0.6.0
+  - git clone -b develop https://github.com/guillaume-nargeot/hpc-coveralls
+  - cd hpc-coveralls
+  - cabal install
+  - cd ..
 
 script:
   - cabal configure --enable-tests --enable-library-coverage -v2
