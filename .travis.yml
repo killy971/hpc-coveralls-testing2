@@ -18,5 +18,5 @@ after_script:
   - |
     if [[ `ghc --version` = *7.8.? ]]; then
       cabal install hpc-coveralls
-      hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2
+      hpc-coveralls test-one --exclude-dir=test1
     fi
