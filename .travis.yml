@@ -7,7 +7,7 @@ ghc:
 
 script:
   - |
-    if [[ `ghc --version` = *7.8.? ]]; then
+    if [[ `ghc --numeric-version` = 7.8.? ]]; then
         cabal configure --enable-tests --enable-library-coverage -v2
     else
         cabal configure --enable-tests -v2
@@ -16,7 +16,7 @@ script:
 
 after_script:
   - |
-    if [[ `ghc --version` = *7.8.? ]]; then
+    if [[ `ghc --numeric-version` = 7.8.? ]]; then
       cabal install hpc-coveralls
       hpc-coveralls test-one --exclude-dir=test1
     fi
