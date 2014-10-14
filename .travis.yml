@@ -7,7 +7,7 @@ ghc:
 
 script:
   - |
-    if [[ $GHCVER = 7.8.* ]]; then
+    if [[ $GHCVER = 7.8* ]]; then
         cabal configure --enable-tests --enable-library-coverage -v2
     else
         cabal configure --enable-tests -v2
