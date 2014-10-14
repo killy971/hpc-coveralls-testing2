@@ -16,7 +16,7 @@ script:
 
 after_script:
   - |
-    if [[ $GHCVER = 7.8.* ]]; then
+    if [[ $GHCVER = 7.8* ]]; then
       cabal install hpc-coveralls
       hpc-coveralls test-one test-two --exclude-dir=test1 --exclude-dir=test2
     fi
