@@ -1,19 +1,17 @@
 language: haskell
 
 ghc:
-  - 7.4.2
   - 7.6.3
-  - 7.8.2
+  - 7.8.3
 
 before_install:
-  - git clone -b consider-otherwise-covered https://github.com/guillaume-nargeot/hpc-coveralls
+  - git clone -b fix-otherwise-coverage https://github.com/guillaume-nargeot/hpc-coveralls
   - cd hpc-coveralls
   - cabal install
   - cd ..
-#  - cabal install hpc-coveralls
 
 script:
-  - cabal configure --enable-tests --enable-library-coverage
+  - cabal configure --enable-tests --enable-library-coverage -v2
   - cabal build
   - run-cabal-test --cabal-name=cabal --show-details=always
 
