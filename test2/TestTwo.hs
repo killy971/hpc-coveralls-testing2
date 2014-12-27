@@ -7,8 +7,7 @@ import Util
 import System.Exit ( exitFailure, exitSuccess )
 import Test.HUnit
 
-testTakeUntil = "takeUntil" ~: [takeUntil (> 2) [] ~=? []]
--- testTakeUntil = "takeUntil" ~: [takeUntil (> 2) [2, 3] ~=? [2, 3]]
+testTakeUntil = "takeUntil" ~: [takeUntil (> 2) [2] ~=? [2]]
 
 testTwo = [testTakeUntil]
 
