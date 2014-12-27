@@ -5,10 +5,7 @@ ghc:
   - 7.8.3
 
 before_install:
-  - git clone -b fix-otherwise-coverage https://github.com/guillaume-nargeot/hpc-coveralls
-  - cd hpc-coveralls
-  - cabal install
-  - cd ..
+  - cabal install hpc-coveralls-0.7.0
 
 script:
   - cabal configure --enable-tests --enable-library-coverage -v2
