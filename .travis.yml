@@ -5,7 +5,7 @@ ghc:
   - 7.8.3
 
 before_install:
-  - cabal install hpc-coveralls-0.7.0
+  - cabal install hpc-coveralls-0.8.0
 
 script:
   - cabal configure --enable-tests --enable-library-coverage -v2
@@ -16,3 +16,4 @@ after_script:
   - hpc-coveralls test-one --exclude-dir=test1 --display-report --dont-send
   - hpc-coveralls test-two --exclude-dir=test2 --display-report --dont-send
   - hpc-coveralls test-three --exclude-dir=test3 --display-report --dont-send
+  - hpc-coveralls test-one test-two test-three --exclude-dir=test1 --exclude-dir=test2 --exclude-dir=test3
