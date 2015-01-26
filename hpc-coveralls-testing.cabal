@@ -19,6 +19,13 @@ library
   exposed-modules: Util
   build-depends:   base < 5
 
+test-suite test-zero
+  hs-source-dirs: src, test0
+  type:            exitcode-stdio-1.0
+  main-is:         TestZero.hs
+  build-depends:   base, containers, HUnit
+  ghc-options:     -Wall
+
 test-suite test-one
   hs-source-dirs: src, test1
   type:            exitcode-stdio-1.0
