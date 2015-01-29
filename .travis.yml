@@ -9,7 +9,7 @@ before_install:
 
 install:
   - cabal-1.22 update
-  - cabal install --only-dependencies --enable-tests
+  - cabal-1.22 install --only-dependencies --enable-tests
 
 script:
   - cabal-1.22 configure --enable-tests --enable-coverage -v2
