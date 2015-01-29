@@ -9,9 +9,10 @@ before_install:
 
 install:
   - cabal-1.22 update
-  - cabal-1.22 configure --enable-tests --enable-coverage -v2
+  - cabal install --only-dependencies --enable-tests
 
 script:
+  - cabal-1.22 configure --enable-tests --enable-coverage -v2
   - cabal-1.22 build
   - cabal-1.22 test --show-details=streaming
 
