@@ -19,4 +19,4 @@ script:
 after_script:
   - tree dist/
   - cabal-1.22 install hpc-coveralls
-  - hpc-coveralls/dist/build/hpc-coveralls/hpc-coveralls --exclude-dir=test --display-report test-all
+  - hpc-coveralls --exclude-dir=test --display-report test-all
