@@ -4,7 +4,7 @@ env:
 before_install:
   - travis_retry sudo add-apt-repository -y ppa:hvr/ghc
   - travis_retry sudo apt-get update
-  - travis_retry sudo apt-get install cabal-install-1.22 ghc-$GHCVER happy-1.19.4 alex-3.1.3 tree
+  - travis_retry sudo apt-get install cabal-install-1.22 ghc-$GHCVER happy-1.19.4 alex-3.1.3
   - export PATH=/opt/ghc/$GHCVER/bin:/opt/alex/3.1.3/bin:/opt/happy/1.19.4/bin:$PATH
 
 install:
@@ -17,6 +17,8 @@ script:
   - cabal-1.22 test --show-details=streaming
 
 after_script:
-  - tree dist/
-  - cabal-1.22 install hpc-coveralls
+  - git clone -b hpc-vanilla-directory https://github.com/guillaume-nargeot/hpc-coveralls
+  - cd hpc-coveralls
+  - cabal-1.22 install
+  - cd ..
   - hpc-coveralls --exclude-dir=test --display-report test-all
