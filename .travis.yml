@@ -21,4 +21,4 @@ after_script:
   - cd hpc-coveralls
   - cabal-1.22 install
   - cd ..
-  - hpc-coveralls/dist/build/hpc-coveralls/hpc-coveralls --exclude-dir=test --display-report test-all
+  - hpc-coveralls/dist/build/hpc-coveralls/hpc-coveralls --exclude-dir=test --display-report --print-response test-all
