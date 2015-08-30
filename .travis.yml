@@ -5,7 +5,7 @@ ghc:
   - 7.8
 
 before_install:
-  - git clone -b develop https://github.com/guillaume-nargeot/hpc-coveralls
+  - git clone -b read-cabal-file https://github.com/guillaume-nargeot/hpc-coveralls
   - cd hpc-coveralls
   - cabal install
   - cd ..
