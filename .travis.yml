@@ -1,3 +1,5 @@
+language: haskell
+
 env:
   - CABALVER=1.22 GHCVER=7.8.3
   - CABALVER=1.22 GHCVER=7.10.1
@@ -23,4 +25,4 @@ after_script:
   - cd hpc-coveralls
   - cabal install
   - cd ..
-  - hpc-coveralls/dist/build/hpc-coveralls/hpc-coveralls test-all --exclude-dir=test --display-report
+  - hpc-coveralls test-all --exclude-dir=test --display-report
