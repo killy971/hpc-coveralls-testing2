@@ -1,13 +1,13 @@
 language: haskell
 
 ghc:
-  - 7.8
+  - 7.10
 
 before_install:
   - cabal install --dependencies-only --enable-tests
 
 script:
-  - cabal configure --enable-tests --enable-library-coverage -v2
+  - cabal configure --enable-tests --enable-coverage -v2
   - cabal build
   - cabal test
 
