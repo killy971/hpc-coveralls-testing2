@@ -21,7 +21,7 @@ script:
   - cabal-$CABALVER test --show-details=always
 
 after_script:
-  - git clone -b read-cabal-file https://github.com/guillaume-nargeot/hpc-coveralls
+  - git clone -b master https://github.com/guillaume-nargeot/hpc-coveralls
   - cd hpc-coveralls
   - cabal install
   - cd ..
