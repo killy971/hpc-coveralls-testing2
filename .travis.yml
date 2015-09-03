@@ -1,20 +1,39 @@
 language: haskell
 
-ghc:
-  - 7.6
-  - 7.8
+env:
+  - CABALVER=1.20 GHCVER=7.6.3
+  - CABALVER=1.22 GHCVER=7.8.3
+  - CABALVER=1.22 GHCVER=7.10.1
 
 before_install:
-  - cabal install hpc-coveralls-0.9.0
+  - travis_retry sudo add-apt-repository -y ppa:hvr/ghc
+  - travis_retry sudo apt-get update
+  - travis_retry sudo apt-get install cabal-install-$CABALVER ghc-$GHCVER happy
+  - export PATH=/opt/ghc/$GHCVER/bin:$PATH
+
+install:
+  - cabal-$CABALVER update
+  - travis_retry sudo apt-get -q -y install hlint || cabal-$CABALVER install hlint
+  - cabal-$CABALVER install --only-dependencies --enable-tests --enable-benchmarks
 
 script:
-  - cabal configure --enable-tests --enable-library-coverage -v2
-  - cabal build
-  - run-cabal-test --cabal-name=cabal --show-details=always
+  - |
+    if [ $CABALVER = "1.20" ]; then
+      cabal-$CABALVER configure --enable-tests --enable-benchmarks --enable-library-coverage -v2
+    else
+      cabal-$CABALVER configure --enable-tests --enable-benchmarks --enable-coverage -v2
+    fi
+  - cabal-$CABALVER build
+  - |
+    if [ $GHCVER = "7.6.3" ]; then
+      dist/build/run-cabal-test/run-cabal-test --cabal-name=cabal-$CABALVER --show-details=always
+    else
+      cabal-$CABALVER test --show-details=always
+    fi
 
 after_script:
+  - cabal install hpc-coveralls 1.0.0
   - hpc-coveralls test-zero --exclude-dir=test0 --display-report --dont-send
   - hpc-coveralls test-one --exclude-dir=test1 --display-report --dont-send
   - hpc-coveralls test-two --exclude-dir=test2 --display-report --dont-send
   - hpc-coveralls test-three --exclude-dir=test3 --display-report --dont-send
-  - hpc-coveralls test-zero test-one test-two test-three --exclude-dir=test0 --exclude-dir=test1 --exclude-dir=test2 --exclude-dir=test3
