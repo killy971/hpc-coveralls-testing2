@@ -15,7 +15,7 @@ install:
   - cabal-$CABALVER update
   - travis_retry sudo apt-get -q -y install hlint || cabal-$CABALVER install hlint
   - cabal-$CABALVER install --only-dependencies --enable-tests --enable-benchmarks
-  - cabal install hpc-coveralls 1.0.0
+  - cabal install hpc-coveralls-1.0.0
   - export PATH=~/.cabal/bin:$PATH
 
 script:
